@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer_agent-service
+  namespace: agents
+spec:
+  type: ClusterIP
+  selector:
+    app: customer_agent
+  ports:
+    - protocol: TCP
+      port: 8005
+      targetPort: 8005
+ 
