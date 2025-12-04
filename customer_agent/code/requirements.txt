@@ -1,0 +1,8 @@
+# Common/Mandatory
+python-dotenv==1.0.0
+uvicorn==0.22.0
+click==8.1.7
+
+# Agent Framework: a2a
+starlette==0.27.0
+a2a==0.2.0
