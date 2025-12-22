@@ -1,0 +1,41 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collections_research_agent
+  namespace: agents
+spec:
+  replicas: 1
+  selector:
+   matchLabels:
+     app: collections_research_agent
+  template:
+   metadata:
+     labels:
+       app: collections_research_agent
+   spec:
+     imagePullSecrets:
+       - name: ecr-pull-secret
+     containers:
+       - name: collections_research_agent
+         image: 905418381667.dkr.ecr.us-east-1.amazonaws.com/collections_research_agent:latest
+         ports:
+           - containerPort: 8008
+         resources:
+           requests:
+             cpu: "100m"
+             memory: "128Mi"
+           limits:
+             cpu: "500m"
+             memory: "512Mi"
+         readinessProbe:
+           exec:
+             command: ["true"]
+           initialDelaySeconds: 10
+           periodSeconds: 10
+         livenessProbe:
+           exec:
+             command: ["true"]
+           initialDelaySeconds: 10
+           periodSeconds: 10
+ 
