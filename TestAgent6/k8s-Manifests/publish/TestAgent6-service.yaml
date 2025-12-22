@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: TestAgent6-service
+  namespace: agents
+spec:
+  type: ClusterIP
+  selector:
+    app: TestAgent6
+  ports:
+    - protocol: TCP
+      port: 8005
+      targetPort: 8005
+ 

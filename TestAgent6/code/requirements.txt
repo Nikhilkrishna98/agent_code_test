@@ -1,0 +1,7 @@
+# Common/Mandatory
+a2a-sdk==0.3.3
+uv==0.7.14
+
+# Google ADK Agent Framework
+google-adk==1.13.0
+litellm==1.72.6

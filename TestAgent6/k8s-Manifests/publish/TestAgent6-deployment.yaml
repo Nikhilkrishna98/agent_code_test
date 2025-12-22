@@ -1,0 +1,41 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: TestAgent6
+  namespace: agents
+spec:
+  replicas: 1
+  selector:
+   matchLabels:
+     app: TestAgent6
+  template:
+   metadata:
+     labels:
+       app: TestAgent6
+   spec:
+     imagePullSecrets:
+       - name: ecr-pull-secret
+     containers:
+       - name: TestAgent6
+         image: 905418381667.dkr.ecr.us-east-1.amazonaws.com/TestAgent6:latest
+         ports:
+           - containerPort: 8005
+         resources:
+           requests:
+             cpu: "100m"
+             memory: "128Mi"
+           limits:
+             cpu: "500m"
+             memory: "512Mi"
+         readinessProbe:
+           exec:
+             command: ["true"]
+           initialDelaySeconds: 10
+           periodSeconds: 10
+         livenessProbe:
+           exec:
+             command: ["true"]
+           initialDelaySeconds: 10
+           periodSeconds: 10
+ 
