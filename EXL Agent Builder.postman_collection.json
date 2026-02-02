@@ -1,0 +1,920 @@
+{
+	"info": {
+		"_postman_id": "8a675d80-74c2-4e74-86c1-b27e3fb66310",
+		"name": "EXL Agent Builder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45949095",
+		"_collection_link": "https://nikhilkrishna-549080.postman.co/workspace/Nikhil-Krishna's-Workspace~717f24ab-ecb3-40af-82d1-96317c5109db/collection/45949095-8a675d80-74c2-4e74-86c1-b27e3fb66310?action=share&source=collection_link&creator=45949095"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/users",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"nikhil\",\n  \"email\": \"nikhil.k@opendatafabric.com\",\n  \"password\": \"test@123\",\n  \"role\": \"admin\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8000/users",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 16 Oct 2025 11:19:33 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "224"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user_id\": \"be8f7cc6-599a-4695-9f79-24773d6194f6\",\n    \"username\": \"nikhil\",\n    \"email\": \"nikhil.k@opendatafabric.com\",\n    \"role\": \"admin\",\n    \"is_active\": true,\n    \"created_at\": \"2025-10-16T16:49:34.366658\",\n    \"updated_at\": \"2025-10-16T16:49:34.366658\"\n}"
+				},
+				{
+					"name": "Fetch Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8000/users",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 16 Oct 2025 11:27:10 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "442"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n        \"username\": \"nikhil\",\n        \"email\": \"nikhil@example.com\",\n        \"role\": \"admin\",\n        \"is_active\": true,\n        \"created_at\": \"2025-10-16T16:46:50.108944\",\n        \"updated_at\": \"2025-10-16T16:46:50.108944\"\n    },\n    {\n        \"user_id\": \"be8f7cc6-599a-4695-9f79-24773d6194f6\",\n        \"username\": \"nikhil\",\n        \"email\": \"nikhil.k@opendatafabric.com\",\n        \"role\": \"admin\",\n        \"is_active\": true,\n        \"created_at\": \"2025-10-16T16:49:34.366658\",\n        \"updated_at\": \"2025-10-16T16:49:34.366658\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create Agent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"agent_name\": \"Test Agent\",\n  \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n  \"framework\": \"LangChain\",\n  \"provider\": \"OpenAI\",\n  \"role\": \"Assistant\",\n  \"description\": \"Helps route queries\",\n  \"prompt\": \"You are a helpful assistant\",\n  \"status\": \"active\",\n  \"ip_address\": \"127.0.0.1\",\n  \"yaml_file_path\": \"/agents/test_agent.yaml\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/agents",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"agents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Agent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"agent_name\": \"Test Agent\",\n  \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n  \"framework\": \"LangChain\",\n  \"provider\": \"OpenAI\",\n  \"role\": \"Assistant\",\n  \"description\": \"Helps route queries\",\n  \"prompt\": \"You are a helpful assistant\",\n  \"status\": \"active\",\n  \"ip_address\": \"127.0.0.1\",\n  \"yaml_file_path\": \"/agents/test_agent.yaml\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 16 Oct 2025 11:41:45 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "453"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"agent_id\": \"dbb2bf04-f694-4d33-8df0-35e0819fac30\",\n    \"agent_name\": \"Test Agent\",\n    \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n    \"framework\": \"LangChain\",\n    \"provider\": \"OpenAI\",\n    \"role\": \"Assistant\",\n    \"description\": \"Helps route queries\",\n    \"prompt\": \"You are a helpful assistant\",\n    \"status\": \"active\",\n    \"ip_address\": \"127.0.0.1\",\n    \"yaml_file_path\": \"/agents/test_agent.yaml\",\n    \"created_at\": \"2025-10-16T17:11:46.478436\",\n    \"updated_at\": \"2025-10-16T17:11:46.478436\",\n    \"is_deleted\": false\n}"
+				},
+				{
+					"name": "Get Agents",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 16 Oct 2025 11:43:02 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "455"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"agent_id\": \"dbb2bf04-f694-4d33-8df0-35e0819fac30\",\n        \"agent_name\": \"Test Agent\",\n        \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n        \"framework\": \"LangChain\",\n        \"provider\": \"OpenAI\",\n        \"role\": \"Assistant\",\n        \"description\": \"Helps route queries\",\n        \"prompt\": \"You are a helpful assistant\",\n        \"status\": \"active\",\n        \"ip_address\": \"127.0.0.1\",\n        \"yaml_file_path\": \"/agents/test_agent.yaml\",\n        \"created_at\": \"2025-10-16T17:11:46.478436\",\n        \"updated_at\": \"2025-10-16T17:11:46.478436\",\n        \"is_deleted\": false\n    }\n]"
+				},
+				{
+					"name": "Multi Agents Creation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n  \"framework\": \"LangGraph\",\n  \"provider\": \"Azure OpenAI\",\n  \"agents\": [\n    {\n      \"agent_name\": \"email_agent\",\n      \"role\": \"email reply agent\",\n      \"description\": \"Reply to all the emails which are unopened for the last 2 days\",\n      \"prompt\": \"Act as an agent which can reply to all the emails unopened for 2 days with an out-of-office message.\"\n    },\n    {\n      \"agent_name\": \"download_agent\",\n      \"role\": \"download email agent\",\n      \"description\": \"Download the mail and reply mail from the email service and store it in S3 bucket\",\n      \"system_prompt\": \"Act as an agent which takes these mails and downloads them as JSON files into S3.\"\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Fri, 17 Oct 2025 07:05:04 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "1095"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"2 agent(s) created successfully\",\n    \"agents\": [\n        {\n            \"agent_name\": \"email_agent\",\n            \"prompt\": \"Act as an agent which can reply to all the emails unopened for 2 days with an out-of-office message.\",\n            \"agent_id\": \"13dd1314-5261-418d-a0c6-b980327fd104\",\n            \"status\": \"draft\",\n            \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n            \"ip_address\": null,\n            \"framework\": \"LangGraph\",\n            \"yaml_file_path\": null,\n            \"provider\": \"Azure OpenAI\",\n            \"created_at\": \"2025-10-17T12:35:04.660204\",\n            \"role\": \"email reply agent\",\n            \"updated_at\": \"2025-10-17T12:35:04.660204\",\n            \"description\": \"Reply to all the emails which are unopened for the last 2 days\",\n            \"is_deleted\": false\n        },\n        {\n            \"agent_name\": \"download_agent\",\n            \"prompt\": null,\n            \"agent_id\": \"091e0272-30cf-464e-b849-758aa309f136\",\n            \"status\": \"draft\",\n            \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n            \"ip_address\": null,\n            \"framework\": \"LangGraph\",\n            \"yaml_file_path\": null,\n            \"provider\": \"Azure OpenAI\",\n            \"created_at\": \"2025-10-17T12:35:04.660204\",\n            \"role\": \"download email agent\",\n            \"updated_at\": \"2025-10-17T12:35:04.660204\",\n            \"description\": \"Download the mail and reply mail from the email service and store it in S3 bucket\",\n            \"is_deleted\": false\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create & Analyse Agent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"agent_name\": \"Test Agent\",\n  \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n  \"framework\": \"LangChain\",\n  \"provider\": \"OpenAI\",\n  \"role\": \"Assistant\",\n  \"description\": \"Helps route queries\",\n  \"prompt\": \"You are a helpful assistant\",\n  \"status\": \"active\",\n  \"ip_address\": \"127.0.0.1\",\n  \"yaml_file_path\": \"/agents/test_agent.yaml\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/agents",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"agents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Agent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"agent_name\": \"Test Agent\",\n  \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n  \"framework\": \"LangChain\",\n  \"provider\": \"OpenAI\",\n  \"role\": \"Assistant\",\n  \"description\": \"Helps route queries\",\n  \"prompt\": \"You are a helpful assistant\",\n  \"status\": \"active\",\n  \"ip_address\": \"127.0.0.1\",\n  \"yaml_file_path\": \"/agents/test_agent.yaml\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 16 Oct 2025 11:41:45 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "453"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"agent_id\": \"dbb2bf04-f694-4d33-8df0-35e0819fac30\",\n    \"agent_name\": \"Test Agent\",\n    \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n    \"framework\": \"LangChain\",\n    \"provider\": \"OpenAI\",\n    \"role\": \"Assistant\",\n    \"description\": \"Helps route queries\",\n    \"prompt\": \"You are a helpful assistant\",\n    \"status\": \"active\",\n    \"ip_address\": \"127.0.0.1\",\n    \"yaml_file_path\": \"/agents/test_agent.yaml\",\n    \"created_at\": \"2025-10-16T17:11:46.478436\",\n    \"updated_at\": \"2025-10-16T17:11:46.478436\",\n    \"is_deleted\": false\n}"
+				},
+				{
+					"name": "Get Agents",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 16 Oct 2025 11:43:02 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "455"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"agent_id\": \"dbb2bf04-f694-4d33-8df0-35e0819fac30\",\n        \"agent_name\": \"Test Agent\",\n        \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n        \"framework\": \"LangChain\",\n        \"provider\": \"OpenAI\",\n        \"role\": \"Assistant\",\n        \"description\": \"Helps route queries\",\n        \"prompt\": \"You are a helpful assistant\",\n        \"status\": \"active\",\n        \"ip_address\": \"127.0.0.1\",\n        \"yaml_file_path\": \"/agents/test_agent.yaml\",\n        \"created_at\": \"2025-10-16T17:11:46.478436\",\n        \"updated_at\": \"2025-10-16T17:11:46.478436\",\n        \"is_deleted\": false\n    }\n]"
+				},
+				{
+					"name": "Multi Agents Creation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n  \"framework\": \"LangGraph\",\n  \"provider\": \"Azure OpenAI\",\n  \"agents\": [\n    {\n      \"agent_name\": \"email_agent\",\n      \"role\": \"email reply agent\",\n      \"description\": \"Reply to all the emails which are unopened for the last 2 days\",\n      \"prompt\": \"Act as an agent which can reply to all the emails unopened for 2 days with an out-of-office message.\"\n    },\n    {\n      \"agent_name\": \"download_agent\",\n      \"role\": \"download email agent\",\n      \"description\": \"Download the mail and reply mail from the email service and store it in S3 bucket\",\n      \"system_prompt\": \"Act as an agent which takes these mails and downloads them as JSON files into S3.\"\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Fri, 17 Oct 2025 07:05:04 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "1095"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"2 agent(s) created successfully\",\n    \"agents\": [\n        {\n            \"agent_name\": \"email_agent\",\n            \"prompt\": \"Act as an agent which can reply to all the emails unopened for 2 days with an out-of-office message.\",\n            \"agent_id\": \"13dd1314-5261-418d-a0c6-b980327fd104\",\n            \"status\": \"draft\",\n            \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n            \"ip_address\": null,\n            \"framework\": \"LangGraph\",\n            \"yaml_file_path\": null,\n            \"provider\": \"Azure OpenAI\",\n            \"created_at\": \"2025-10-17T12:35:04.660204\",\n            \"role\": \"email reply agent\",\n            \"updated_at\": \"2025-10-17T12:35:04.660204\",\n            \"description\": \"Reply to all the emails which are unopened for the last 2 days\",\n            \"is_deleted\": false\n        },\n        {\n            \"agent_name\": \"download_agent\",\n            \"prompt\": null,\n            \"agent_id\": \"091e0272-30cf-464e-b849-758aa309f136\",\n            \"status\": \"draft\",\n            \"user_id\": \"84dcb548-450d-4ee5-9bbe-068efe18f2ef\",\n            \"ip_address\": null,\n            \"framework\": \"LangGraph\",\n            \"yaml_file_path\": null,\n            \"provider\": \"Azure OpenAI\",\n            \"created_at\": \"2025-10-17T12:35:04.660204\",\n            \"role\": \"download email agent\",\n            \"updated_at\": \"2025-10-17T12:35:04.660204\",\n            \"description\": \"Download the mail and reply mail from the email service and store it in S3 bucket\",\n            \"is_deleted\": false\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Parse yaml file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/nikhilkrishna/Downloads/agent_config.yaml"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/agents/parse-yaml",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"agents",
+						"parse-yaml"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Parse yaml file",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/nikhilkrishna/Downloads/agent_config.yaml"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents/parse-yaml",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents",
+								"parse-yaml"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Fri, 17 Oct 2025 13:14:03 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "846"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"parsed_data\": {\n        \"status_code\": 200,\n        \"background\": null,\n        \"body\": \"{\\\"framework\\\":\\\"google_adk\\\",\\\"provider\\\":\\\"azure_openai\\\",\\\"agents\\\":[{\\\"agent_name\\\":\\\"email_agent\\\",\\\"role\\\":\\\"email reply agent\\\",\\\"description\\\":\\\"Reply to all the emails which are unopened for the last 2 days\\\",\\\"prompt\\\":\\\"Act as an agent which can reply to all the emails which are unopened for the last two days with an out of office message addressing the email sender\\\"},{\\\"agent_name\\\":\\\"download_agent\\\",\\\"role\\\":\\\"download email agent\\\",\\\"description\\\":\\\"Download the mail and reply mail from the email service and store it in s3 bucket\\\",\\\"prompt\\\":\\\"Act as an agent which takes these mails and reply mails and download it and store it as a json file in an s3 bucket\\\"}]}\",\n        \"raw_headers\": [\n            [\n                \"content-length\",\n                \"645\"\n            ],\n            [\n                \"content-type\",\n                \"application/json\"\n            ]\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Analyse Status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/nikhilkrishna/Downloads/agent_config.yaml",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/agents/submit?session_id=84dcb548-450d-4ee5-9bbe-068efe18f2ef",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"agents",
+						"submit"
+					],
+					"query": [
+						{
+							"key": "session_id",
+							"value": "84dcb548-450d-4ee5-9bbe-068efe18f2ef"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Eml",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Start Code Generation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/agents/start-code-generation/4fd89482-d791-4483-9afc-6a1c4aa32289",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"agents",
+						"start-code-generation",
+						"4fd89482-d791-4483-9afc-6a1c4aa32289"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload file",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "start_agent",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Pipeline Status",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Pipeline Logs",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "agent artifacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/agents/becef191-851f-4410-bb3e-191c7d499d4a/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"agents",
+						"becef191-851f-4410-bb3e-191c7d499d4a",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create& Analyze agents EXL",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Tools",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/agents/d3a612d2-34a4-482a-a3a4-652659f2d5f2/tools",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"agents",
+						"d3a612d2-34a4-482a-a3a4-652659f2d5f2",
+						"tools"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8000/agents/d3a612d2-34a4-482a-a3a4-652659f2d5f2/tools",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"agents",
+								"d3a612d2-34a4-482a-a3a4-652659f2d5f2",
+								"tools"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 18 Dec 2025 08:54:41 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "498"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"tool_id\": \"1dc18132-6afd-45bf-9b5b-6fc6f64d8324\",\n        \"tool_name\": \"read_email_from_s3\",\n        \"agent_id\": \"d3a612d2-34a4-482a-a3a4-652659f2d5f2\",\n        \"description\": \"Reads the body text of an email file stored in AWS S3.\",\n        \"common_tool_id\": \"7650eba4-8105-4a0e-bb24-1f62aeb33716\"\n    },\n    {\n        \"tool_id\": \"0247e398-4c42-4ca5-9d82-e1a2f83e5958\",\n        \"tool_name\": \"read_sheet\",\n        \"agent_id\": \"d3a612d2-34a4-482a-a3a4-652659f2d5f2\",\n        \"description\": \"Reads data from an Excel sheet in S3.\",\n        \"common_tool_id\": \"00accedb-8d38-4279-bafc-78fc7c9f24f6\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Agent Iterations Logs",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy API",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create Solutions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"solution_name\": \"Solution_2\",\n    \"solution_prompt\": \"\",\n    \"agents_config\": {},\n    \"solution_status\": \"created\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/solution/create",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"solution",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Solutions",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update Solutions",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"agents_config\": {\"test-agent\": \"http://localhost:8005\",\"support-agent\": \"http://localhost:8006\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/solution/update/2fc791b4-a632-47cc-8525-183cc25c7198",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"solution",
+						"update",
+						"2fc791b4-a632-47cc-8525-183cc25c7198"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Run Orchestrator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/solution/run-orchestrator/2fc791b4-a632-47cc-8525-183cc25c7198",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"solution",
+						"run-orchestrator",
+						"2fc791b4-a632-47cc-8525-183cc25c7198"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
